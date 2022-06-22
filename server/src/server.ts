@@ -7,6 +7,8 @@ import { Server } from "socket.io";
 import { PORT } from './env';
 import db from './db'
 import v1ApiRouter from './routers/v1ApiRouters'
+import "reflect-metadata"
+
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
