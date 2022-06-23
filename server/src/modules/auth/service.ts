@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt'
 import { User } from "../../model/Entity/users";
-import { privateKey } from '../../middleware/config';
+import { privateKey } from '../../middleware/auth/config';
 
 export const sendRefreshToken = (user: User): string => {
     return jwt.sign({ user: user.username }, privateKey.secret,
