@@ -1,4 +1,5 @@
 import { User } from './Entity/users';
+import { Newsfeed } from './Entity/newsfeed';
 import { DataSource } from "typeorm";
 
 export const AppDataSource = new DataSource({
@@ -7,7 +8,7 @@ export const AppDataSource = new DataSource({
     host: "localhost",
     port: 27017,
     database: "social-media",
-    entities: [User],
+    entities: [User, Newsfeed],
 })
 export const Manager = AppDataSource.manager;
 export const initialize = () => {

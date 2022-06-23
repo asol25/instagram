@@ -1,13 +1,16 @@
 import { Entity, ObjectID, ObjectIdColumn, Column } from "typeorm"
-
+import { Newsfeed } from './newsfeed';
+import { Profile } from "./profile";
 @Entity()
 export class User {
     @ObjectIdColumn()
-    id: ObjectID
+    _id: ObjectID
+
+    @Column()
+    id: string
 
     @Column()
     username: string
-    
 
     @Column()
     password: string
@@ -15,9 +18,9 @@ export class User {
     @Column()
     token: string
 
-    // constructor(id: ObjectID, firstName: string, lastName: string) {
-    //     this.id = id;
-    //     this.firstName = firstName;
-    //     this.lastName = lastName;
-    // }
+    @Column((type) => Profile)
+    profile: Profile
+
+    @Column((type) => Newsfeed)
+    newsfeed: Newsfeed[]
 }

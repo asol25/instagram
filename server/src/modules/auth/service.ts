@@ -10,10 +10,11 @@ export const sendRefreshToken = (user: User): string => {
 
 export const insertInformation = async (options: User): Promise<User> => {
     const user = new User();
-    const saltRounds = 8;
+    user.id = (user._id as any);
     user.username = options.username;
+    const saltRounds = 8;
     user.password = await bcrypt.hash(options.password, saltRounds);
-    user.token = await sendRefreshToken(user);
+    user.token = sendRefreshToken(user);
     return user;
 }
 

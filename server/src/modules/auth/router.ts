@@ -15,8 +15,8 @@ Authentication.post('/register', async (req: Request, res: Response) => {
         UserRepository.save(await user);
         res.status(200).json(await user);
     } catch (error) {
-        console.error({ error: error.message });
-        res.status(500).send({ error: error.message });
+        console.error({ "POST REGISTER": error.message || error.response?.data?.messages });
+        res.status(500).send({ "POST REGISTER": error.message });
     }
 })
 
@@ -33,10 +33,12 @@ Authentication.post('/login', async (req: Request, res: Response) => {
 
         const token = sendRefreshToken(user);
         user.token = token;
+        user.id = (user._id as any);
+
 
         res.status(200).json(user);
     } catch (error) {
-        console.error({ error: error.message });
-        res.status(500).send({ error: error.message });
+        console.error({ "POST LOGIN": error.message || error.response?.data?.messages });
+        res.status(500).send({ "POST LOGIN": error.message });
     }
 });

@@ -9,3 +9,5 @@ const resetPasswordSpeedLimiter  = slowDown({
     // request # 103 is delayed by 1500ms
     // etc.
 });
+
+export default resetPasswordSpeedLimiter
