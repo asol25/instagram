@@ -8,7 +8,7 @@ import { PORT } from './env';
 import db from './db'
 import v1ApiRouter from './routers/v1ApiRouters'
 import "reflect-metadata"
-
+import { initialize } from './model/data-source';
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
@@ -23,6 +23,7 @@ app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 db();
+initialize();
 
 app.use('/', v1ApiRouter);
 

@@ -1,13 +1,14 @@
 import { Request, Response, Router } from "express";
-import MessagesChatRouter from "../modules/message-chat/routers";
+import { Authentication } from "../modules/auth/router";
+import { auth } from "../middleware/auth";
 const v1ApiRouter = Router();
-v1ApiRouter.use("/", MessagesChatRouter);
 
-// v1ApiRouter.get("/", (req: Request, res: Response) => {
-//     res.status(200).json({
-//         success: "true",
-//         data: "Api v1",
-//     });
-// });
+v1ApiRouter.get("/", auth ,(req: Request, res: Response) => {
+    res.status(200).json({
+        success: "true",
+        data: "Api v1",
+    });
+});
 
+v1ApiRouter.use("/api/authentication", Authentication)
 export default v1ApiRouter;

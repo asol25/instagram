@@ -1,5 +1,5 @@
-const {
-    ADD_MESSAGE,
-    GET_MESSAGE,
-} = require('./service');
+// const {
+//     ADD_MESSAGE,
+//     GET_MESSAGE,
+// } = require('./service');
 

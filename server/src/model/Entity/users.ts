@@ -6,8 +6,18 @@ export class User {
     id: ObjectID
 
     @Column()
-    firstName: string
+    username: string
+    
 
     @Column()
-    lastName: string
+    password: string
+
+    @Column()
+    token: string
+
+    // constructor(id: ObjectID, firstName: string, lastName: string) {
+    //     this.id = id;
+    //     this.firstName = firstName;
+    //     this.lastName = lastName;
+    // }
 }

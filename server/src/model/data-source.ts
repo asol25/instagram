@@ -9,16 +9,16 @@ export const AppDataSource = new DataSource({
     database: "social-media",
     entities: [User],
 })
-
+export const Manager = AppDataSource.manager;
 export const initialize = () => {
-    AppDataSource.initialize()
+    return AppDataSource.initialize()
         .then(() => {
             console.log("Data Source has been initialized!")
+            // console.log(AppDataSource.initialize());
 
         })
         .catch((err) => {
             console.error("Error during Data Source initialization", err)
         })
 
-    console.log(AppDataSource.initialize());
 }

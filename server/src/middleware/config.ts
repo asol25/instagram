@@ -1,3 +1,3 @@
 export const privateKey = {
-    "secret": "shhhhhhared-secret"
+    "secret": "secret_this_should_be_longer"
 }
